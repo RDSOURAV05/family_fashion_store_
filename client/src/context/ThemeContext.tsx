@@ -1,81 +1,69 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type ColorPalette = 'emerald' | 'wine' | 'noir' | 'dark';
+export type Theme = 'light' | 'dark';
 
 interface ThemeContextType {
-  palette: ColorPalette;
+  theme: Theme;
   isDark: boolean;
-  setPalette: (palette: ColorPalette) => void;
-  toggleDarkMode: () => void;
-  cyclePalette: () => void;
+  toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 }
 
-const PALETTE_STORAGE_KEY = 'chic_store_color_palette';
+const THEME_STORAGE_KEY = 'chic_store_theme';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [palette, setPaletteState] = useState<ColorPalette>(() => {
+  const [theme, setThemeState] = useState<Theme>(() => {
     try {
-      const saved = localStorage.getItem(PALETTE_STORAGE_KEY) as ColorPalette | null;
-      if (saved && ['emerald', 'wine', 'noir', 'dark'].includes(saved)) {
+      const saved = localStorage.getItem(THEME_STORAGE_KEY) as Theme | null;
+      if (saved && (saved === 'light' || saved === 'dark')) {
         return saved;
       }
     } catch (e) {
       // Ignore
     }
-    // Default to the new fresh, high-contrast Royal Emerald & Gold combination!
-    return 'emerald';
+    // Default to clean, elegant Light Boutique Mode
+    return 'light';
   });
 
-  const isDark = palette === 'dark';
+  const isDark = theme === 'dark';
 
-  // Apply palette to document root
+  // Apply theme to document root
   useEffect(() => {
     const root = document.documentElement;
-    root.setAttribute('data-palette', palette);
-    root.classList.remove('dark', 'palette-emerald', 'palette-wine', 'palette-noir', 'palette-dark');
-    root.classList.add(`palette-${palette}`);
+    root.setAttribute('data-theme', theme);
+    root.classList.remove('dark', 'light');
 
-    if (palette === 'dark') {
+    if (theme === 'dark') {
       root.classList.add('dark');
       root.style.colorScheme = 'dark';
     } else {
+      root.classList.add('light');
       root.style.colorScheme = 'light';
     }
-  }, [palette]);
+  }, [theme]);
 
-  const setPalette = (newPalette: ColorPalette) => {
-    setPaletteState(newPalette);
+  const setTheme = (newTheme: Theme) => {
+    setThemeState(newTheme);
     try {
-      localStorage.setItem(PALETTE_STORAGE_KEY, newPalette);
+      localStorage.setItem(THEME_STORAGE_KEY, newTheme);
     } catch (e) {
       console.error(e);
     }
   };
 
-  const toggleDarkMode = () => {
-    if (isDark) {
-      setPalette('emerald');
-    } else {
-      setPalette('dark');
-    }
-  };
-
-  const cyclePalette = () => {
-    const order: ColorPalette[] = ['emerald', 'wine', 'noir', 'dark'];
-    const nextIdx = (order.indexOf(palette) + 1) % order.length;
-    setPalette(order[nextIdx]);
+  const toggleTheme = () => {
+    setTheme(isDark ? 'light' : 'dark');
   };
 
   return (
     <ThemeContext.Provider
       value={{
-        palette,
+        theme,
         isDark,
-        setPalette,
-        toggleDarkMode,
-        cyclePalette
+        toggleTheme,
+        setTheme,
       }}
     >
       {children}

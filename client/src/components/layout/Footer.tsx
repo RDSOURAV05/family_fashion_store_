@@ -197,7 +197,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-charcoal-700 gap-4">
           <div className="flex items-center gap-4">
             <p>© {new Date().getFullYear()} Chic Store. All rights reserved.</p>
-            <ThemeToggle variant="dropdown" />
+            <ThemeToggle variant="button" />
           </div>
           <p className="text-[11px] text-charcoal-700 text-center sm:text-right">
             Curated Women's Fashion • WhatsApp Ordering • Standard Indian Boutique Care
