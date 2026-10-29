@@ -427,7 +427,29 @@ export const ProductDetailPage: React.FC = () => {
         category={product.category}
       />
 
-      <FloatingWhatsApp />
+      {/* Mobile Sticky Action Bar */}
+      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-cream-200/90 p-3 px-4 flex gap-2.5 shadow-2xl">
+        <button
+          onClick={handleAddToCart}
+          disabled={!product.inStock}
+          className="flex-1 py-3 px-3 rounded-full bg-burgundy-800 text-white font-medium text-xs flex items-center justify-center gap-1.5 shadow-md active:scale-95 disabled:bg-charcoal-400"
+        >
+          <ShoppingBag className="w-3.5 h-3.5" />
+          <span>Add to Bag</span>
+        </button>
+
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-1 py-3 px-3 rounded-full bg-[#25D366] text-white font-medium text-xs flex items-center justify-center gap-1.5 shadow-md active:scale-95"
+        >
+          <WhatsAppIcon size={16} className="fill-current text-white shrink-0" />
+          <span>WhatsApp Enquiry</span>
+        </a>
+      </div>
+
+      <FloatingWhatsApp bottomOffset="bottom-20 sm:bottom-6" />
     </div>
   );
 };

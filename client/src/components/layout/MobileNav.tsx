@@ -125,14 +125,14 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, links }) 
             <span>Call: {STORE_PHONE_DISPLAY}</span>
           </a>
 
-          <div className="pt-2 text-center">
+          <div className="pt-2">
             <Link
               to="/admin/login"
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 text-[11px] text-charcoal-700 hover:text-burgundy-800"
+              className="flex items-center justify-center gap-2 w-full py-2.5 px-4 rounded-xl bg-burgundy-900 text-cream-100 hover:bg-burgundy-950 text-xs font-semibold tracking-wide shadow-sm transition"
             >
-              <ShieldCheck className="w-3.5 h-3.5" />
-              <span>Staff / Admin Portal</span>
+              <ShieldCheck className="w-4 h-4 text-gold-400" />
+              <span>Administrator Portal</span>
             </Link>
           </div>
         </div>

@@ -119,17 +119,17 @@ export const AdminDashboardPage: React.FC = () => {
 
         {/* Sub Navigation Bar */}
         <div className="border-t border-cream-200 bg-cream-50/70">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-6 overflow-x-auto py-2 text-xs font-medium">
-            <Link to="/admin/dashboard" className="text-burgundy-800 font-semibold border-b-2 border-burgundy-800 pb-1">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-6 overflow-x-auto py-2.5 text-xs font-medium whitespace-nowrap scrollbar-none">
+            <Link to="/admin/dashboard" className="text-burgundy-800 font-semibold border-b-2 border-burgundy-800 pb-1 shrink-0">
               Dashboard Overview
             </Link>
-            <Link to="/admin/products" className="text-charcoal-700 hover:text-burgundy-800 pb-1">
+            <Link to="/admin/products" className="text-charcoal-700 hover:text-burgundy-800 pb-1 shrink-0">
               Products Catalogue ({products.length})
             </Link>
-            <Link to="/admin/orders" className="text-charcoal-700 hover:text-burgundy-800 pb-1">
+            <Link to="/admin/orders" className="text-charcoal-700 hover:text-burgundy-800 pb-1 shrink-0">
               WhatsApp Orders ({orders.length})
             </Link>
-            <Link to="/admin/settings" className="text-charcoal-700 hover:text-burgundy-800 pb-1">
+            <Link to="/admin/settings" className="text-charcoal-700 hover:text-burgundy-800 pb-1 shrink-0">
               Store Banners & Info
             </Link>
           </div>

@@ -329,8 +329,61 @@ export const AdminProductsPage: React.FC = () => {
               No products found matching your filter.
             </div>
           ) : (
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs border-collapse">
+            <>
+              {/* Mobile Product Card List (sm:hidden) */}
+              <div className="sm:hidden divide-y divide-cream-100">
+                {filtered.map(p => (
+                  <div key={p.id} className="p-4 flex gap-3.5 items-start">
+                    <img src={p.images[0]} alt="" className="w-16 h-20 object-cover object-top rounded-xl bg-cream-100 shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex justify-between items-start gap-1">
+                        <div>
+                          <span className="text-[10px] uppercase font-semibold text-burgundy-700 font-serif">{p.category}</span>
+                          <h4 className="font-serif text-sm font-medium text-charcoal-900 line-clamp-1">{p.name}</h4>
+                        </div>
+                        <span className="font-serif font-semibold text-sm text-burgundy-900 shrink-0">{formatCurrency(p.price)}</span>
+                      </div>
+                      <div className="flex items-center gap-2 mt-1.5 flex-wrap">
+                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium ${
+                          p.inStock ? 'bg-emerald-50 text-emerald-800' : 'bg-red-50 text-red-800'
+                        }`}>
+                          {p.inStock ? `${p.stockCount} in stock` : 'Out of stock'}
+                        </span>
+                        {p.isFeatured && (
+                          <span className="px-1.5 py-0.5 text-[9px] rounded bg-rose-100 text-burgundy-800 font-semibold uppercase">
+                            Featured
+                          </span>
+                        )}
+                        {p.isNewArrival && (
+                          <span className="px-1.5 py-0.5 text-[9px] rounded bg-amber-100 text-amber-900 font-semibold uppercase">
+                            New
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex items-center gap-2 mt-3 pt-2 border-t border-cream-100">
+                        <button
+                          onClick={() => handleOpenEdit(p)}
+                          className="flex-1 py-1.5 px-3 rounded-lg border border-cream-300 bg-cream-50 text-xs font-medium text-charcoal-800 flex items-center justify-center gap-1.5 active:bg-cream-100"
+                        >
+                          <Edit2 className="w-3.5 h-3.5" />
+                          <span>Edit</span>
+                        </button>
+                        <button
+                          onClick={() => handleDelete(p.id, p.name)}
+                          className="py-1.5 px-3 rounded-lg border border-red-200 text-red-700 bg-red-50 text-xs font-medium flex items-center justify-center gap-1.5 active:bg-red-100"
+                        >
+                          <Trash2 className="w-3.5 h-3.5" />
+                          <span>Delete</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Desktop Table (hidden sm:block) */}
+              <div className="hidden sm:block overflow-x-auto">
+                <table className="w-full text-left text-xs border-collapse">
                 <thead>
                   <tr className="bg-cream-50 border-b border-cream-200 text-charcoal-700 uppercase tracking-wider font-serif">
                     <th className="py-3 px-4 font-semibold">Garment</th>
@@ -400,6 +453,7 @@ export const AdminProductsPage: React.FC = () => {
                 </tbody>
               </table>
             </div>
+            </>
           )}
         </div>
 

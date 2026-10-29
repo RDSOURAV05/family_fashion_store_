@@ -218,7 +218,7 @@ export const CheckoutPage: React.FC = () => {
                     value={formData.fullName}
                     onChange={e => setFormData({ ...formData, fullName: e.target.value })}
                     placeholder="e.g. Priya Sharma"
-                    className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                       errors.fullName ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                     }`}
                   />
@@ -236,7 +236,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. 9876543210"
-                      className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                         errors.phone ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -252,7 +252,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
                       placeholder="name@example.com"
-                      className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                      className="w-full py-3 px-4 rounded-xl border border-cream-300 text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                     />
                   </div>
                 </div>
@@ -267,7 +267,7 @@ export const CheckoutPage: React.FC = () => {
                     value={formData.deliveryAddress}
                     onChange={e => setFormData({ ...formData, deliveryAddress: e.target.value })}
                     placeholder="Flat / House No., Apartment, Street name, Nearby Landmark..."
-                    className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                       errors.deliveryAddress ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                     }`}
                   />
@@ -285,7 +285,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.city}
                       onChange={e => setFormData({ ...formData, city: e.target.value })}
                       placeholder="e.g. Kochi"
-                      className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                         errors.city ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -301,7 +301,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.state}
                       onChange={e => setFormData({ ...formData, state: e.target.value })}
                       placeholder="e.g. Kerala"
-                      className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                         errors.state ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -318,7 +318,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.pinCode}
                       onChange={e => setFormData({ ...formData, pinCode: e.target.value })}
                       placeholder="e.g. 682001"
-                      className={`w-full py-2.5 px-4 rounded-xl border text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
                         errors.pinCode ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />

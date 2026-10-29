@@ -421,43 +421,153 @@ export const ShopPage: React.FC = () => {
       {mobileFiltersOpen && (
         <div className="fixed inset-0 z-50 lg:hidden">
           <div className="fixed inset-0 bg-charcoal-900/60 backdrop-blur-sm" onClick={() => setMobileFiltersOpen(false)} />
-          <div className="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl p-6 overflow-y-auto z-10 space-y-6">
-            <div className="flex items-center justify-between pb-4 border-b border-cream-200">
-              <h3 className="font-serif text-lg font-semibold text-charcoal-900">Filters</h3>
-              <button onClick={() => setMobileFiltersOpen(false)} className="p-1 text-charcoal-700">
+          <div className="fixed inset-y-0 right-0 max-w-sm w-full bg-white shadow-2xl flex flex-col z-10">
+            {/* Header */}
+            <div className="flex items-center justify-between p-5 border-b border-cream-200">
+              <div className="flex items-center gap-2">
+                <SlidersHorizontal className="w-5 h-5 text-burgundy-700" />
+                <h3 className="font-serif text-lg font-semibold text-charcoal-900">Filters</h3>
+                {hasActiveFilters && (
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-100 text-burgundy-800 font-semibold">Active</span>
+                )}
+              </div>
+              <button 
+                onClick={() => setMobileFiltersOpen(false)} 
+                className="p-1.5 text-charcoal-600 hover:text-charcoal-900 rounded-lg hover:bg-cream-100"
+                aria-label="Close filters"
+              >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
-            <div>
-              <h4 className="text-xs font-semibold uppercase tracking-wider text-charcoal-800 mb-3">Categories</h4>
-              <div className="space-y-1.5">
-                {CATEGORIES.map(cat => (
-                  <button
-                    key={cat}
-                    onClick={() => {
-                      handleCategoryChange(cat);
-                      setMobileFiltersOpen(false);
-                    }}
-                    className={`w-full text-left py-2 px-3 rounded-lg text-xs ${
-                      categoryParam === cat ? 'bg-rose-50 text-burgundy-900 font-semibold' : 'text-charcoal-700'
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
+            {/* Scrollable Filters Body */}
+            <div className="flex-1 overflow-y-auto p-5 space-y-6">
+              {/* Category Filter */}
+              <div>
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-charcoal-800 mb-2.5">Categories</h4>
+                <div className="grid grid-cols-2 gap-1.5">
+                  {CATEGORIES.map(cat => (
+                    <button
+                      key={cat}
+                      onClick={() => handleCategoryChange(cat)}
+                      className={`text-left py-2 px-3 rounded-xl text-xs transition ${
+                        categoryParam === cat ? 'bg-rose-100 text-burgundy-900 font-semibold border border-burgundy-300' : 'text-charcoal-700 bg-cream-50 hover:bg-cream-100'
+                      }`}
+                    >
+                      {cat}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Price Range */}
+              <div className="pt-4 border-t border-cream-200">
+                <div className="flex justify-between items-center mb-2">
+                  <h4 className="text-xs font-semibold uppercase tracking-wider text-charcoal-800">Max Price</h4>
+                  <span className="text-xs font-semibold text-burgundy-800">{formatCurrency(maxPriceParam)}</span>
+                </div>
+                <input
+                  type="range"
+                  min="500"
+                  max="6000"
+                  step="250"
+                  value={maxPriceParam}
+                  onChange={e => updateParam('maxPrice', e.target.value)}
+                  className="w-full accent-burgundy-700 cursor-pointer"
+                />
+                <div className="flex justify-between text-[11px] text-charcoal-600 mt-1">
+                  <span>₹500</span>
+                  <span>₹6,000+</span>
+                </div>
+              </div>
+
+              {/* Sizes Filter */}
+              <div className="pt-4 border-t border-cream-200">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-charcoal-800 mb-2.5">Available Sizes</h4>
+                <div className="flex flex-wrap gap-2">
+                  {SIZES.map(size => {
+                    const active = sizeParam.includes(size);
+                    return (
+                      <button
+                        key={size}
+                        onClick={() => handleSizeToggle(size)}
+                        className={`px-3 py-1.5 text-xs rounded-xl border transition ${
+                          active
+                            ? 'border-burgundy-700 bg-rose-50 text-burgundy-900 font-semibold shadow-sm'
+                            : 'border-cream-300 text-charcoal-700 bg-white'
+                        }`}
+                      >
+                        {size}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Color Tones Filter */}
+              <div className="pt-4 border-t border-cream-200">
+                <h4 className="text-xs font-semibold uppercase tracking-wider text-charcoal-800 mb-2.5">Color Tones</h4>
+                <div className="flex flex-wrap gap-1.5">
+                  {COLORS.map(col => {
+                    const active = colorParam.includes(col);
+                    return (
+                      <button
+                        key={col}
+                        onClick={() => handleColorToggle(col)}
+                        className={`px-2.5 py-1 text-xs rounded-lg border transition ${
+                          active
+                            ? 'border-burgundy-700 bg-rose-100 text-burgundy-900 font-semibold'
+                            : 'border-cream-200 text-charcoal-700 bg-cream-50'
+                        }`}
+                      >
+                        {col}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Toggles */}
+              <div className="pt-4 border-t border-cream-200 space-y-3">
+                <label className="flex items-center gap-3 cursor-pointer text-xs text-charcoal-800">
+                  <input
+                    type="checkbox"
+                    checked={inStockOnly}
+                    onChange={e => updateParam('inStock', e.target.checked ? 'true' : null)}
+                    className="w-4 h-4 rounded border-cream-300 text-burgundy-700 focus:ring-burgundy-700"
+                  />
+                  <span>In Stock Only</span>
+                </label>
+
+                <label className="flex items-center gap-3 cursor-pointer text-xs text-charcoal-800">
+                  <input
+                    type="checkbox"
+                    checked={newArrivalsOnly}
+                    onChange={e => updateParam('isNewArrival', e.target.checked ? 'true' : null)}
+                    className="w-4 h-4 rounded border-cream-300 text-burgundy-700 focus:ring-burgundy-700"
+                  />
+                  <span>New Arrivals Only</span>
+                </label>
               </div>
             </div>
 
-            <button
-              onClick={() => {
-                clearAllFilters();
-                setMobileFiltersOpen(false);
-              }}
-              className="w-full py-2.5 bg-cream-100 text-charcoal-800 rounded-xl text-xs font-medium"
-            >
-              Clear All Filters
-            </button>
+            {/* Bottom Actions */}
+            <div className="p-4 border-t border-cream-200 bg-cream-50 space-y-2">
+              <button
+                onClick={() => setMobileFiltersOpen(false)}
+                className="w-full py-3 bg-burgundy-800 text-white rounded-xl text-xs font-semibold uppercase tracking-wider hover:bg-burgundy-900 transition shadow-md"
+              >
+                View {filteredProducts.length} Results
+              </button>
+              {hasActiveFilters && (
+                <button
+                  onClick={clearAllFilters}
+                  className="w-full py-2 bg-transparent text-charcoal-700 hover:text-burgundy-800 text-xs font-medium"
+                >
+                  Clear All Filters
+                </button>
+              )}
+            </div>
           </div>
         </div>
       )}
