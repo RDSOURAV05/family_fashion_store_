@@ -7,7 +7,7 @@ export const PrivacyPolicyPage: React.FC = () => {
     <div className="bg-cream-50 min-h-screen py-12 sm:py-20">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-cream-200/80 shadow-soft space-y-8">
+        <div className="bg-white p-8 sm:p-12 rounded-3xl border border-cream-200 shadow-soft space-y-8">
           
           <div>
             <span className="text-xs uppercase tracking-[0.25em] font-serif text-burgundy-700 block mb-1">

@@ -44,7 +44,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
 
   return (
     <div 
-      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-cream-200/80 shadow-soft hover:shadow-elevated transition-all duration-300"
+      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-cream-200 shadow-soft hover:shadow-elevated transition-all duration-300"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -166,7 +166,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onQuickView }
         </div>
 
         {/* Price & Mobile Add */}
-        <div className="mt-3 pt-3 border-t border-cream-200/60 flex items-center justify-between">
+        <div className="mt-3 pt-3 border-t border-cream-200 flex items-center justify-between">
           <div className="flex items-baseline gap-2">
             <span className="font-serif text-lg font-semibold text-burgundy-900">
               {formatCurrency(product.price)}

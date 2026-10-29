@@ -177,7 +177,7 @@ export const AdminOrdersPage: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start">
                     
                     {/* Customer Info (5 cols) */}
-                    <div className="md:col-span-5 bg-cream-50/70 p-4 rounded-2xl border border-cream-200/60 space-y-3 text-xs">
+                    <div className="md:col-span-5 bg-cream-50 p-4 rounded-2xl border border-cream-200 space-y-3 text-xs">
                       <h4 className="font-semibold text-charcoal-900 uppercase tracking-wider text-[11px] font-serif">
                         Customer & Delivery Details
                       </h4>

@@ -16,7 +16,7 @@ export const FeaturedSection: React.FC<FeaturedSectionProps> = ({ products }) =>
   const displayList = featured.length > 0 ? featured : products.slice(0, 4);
 
   return (
-    <section className="py-16 sm:py-24 bg-white border-t border-cream-200/60">
+    <section className="py-16 sm:py-24 bg-white border-t border-cream-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

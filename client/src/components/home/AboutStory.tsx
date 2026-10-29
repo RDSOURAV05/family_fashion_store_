@@ -32,29 +32,29 @@ export const AboutStory: React.FC<AboutStoryProps> = ({
 
         {/* Core Values Pillars */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 pt-8 border-t border-cream-200">
-          <div className="p-4 rounded-xl bg-cream-50/70 border border-cream-200/60">
-            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-1">
+          <div className="p-5 rounded-2xl bg-white border border-cream-200 shadow-soft hover:shadow-elevated transition">
+            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-2">
               Breathable Fabrics
             </h4>
-            <p className="text-xs text-charcoal-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed">
               Curated pure mulmuls, chanderis, and natural cottons tailored for all-day comfort in tropical weather.
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-cream-50/70 border border-cream-200/60">
-            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-1">
+          <div className="p-5 rounded-2xl bg-white border border-cream-200 shadow-soft hover:shadow-elevated transition">
+            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-2">
               Timeless Aesthetics
             </h4>
-            <p className="text-xs text-charcoal-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed">
               Silhouettes that gracefully balance traditional Indian heritage with contemporary minimalist cuts.
             </p>
           </div>
 
-          <div className="p-4 rounded-xl bg-cream-50/70 border border-cream-200/60">
-            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-1">
+          <div className="p-5 rounded-2xl bg-white border border-cream-200 shadow-soft hover:shadow-elevated transition">
+            <h4 className="font-serif text-base font-semibold text-burgundy-900 mb-2">
               Personalized Boutique Care
             </h4>
-            <p className="text-xs text-charcoal-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed">
               Direct, warm WhatsApp shopping assistance to help you pick the right fit, color, and styling.
             </p>
           </div>

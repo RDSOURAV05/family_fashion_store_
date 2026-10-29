@@ -120,7 +120,7 @@ export const AdminDashboardPage: React.FC = () => {
         </div>
 
         {/* Sub Navigation Bar */}
-        <div className="border-t border-cream-200 bg-cream-50/70">
+        <div className="border-t border-cream-200 bg-cream-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-6 overflow-x-auto py-2.5 text-xs font-medium whitespace-nowrap scrollbar-none">
             <Link to="/admin/dashboard" className="text-burgundy-800 font-semibold border-b-2 border-burgundy-800 pb-1 shrink-0">
               Dashboard Overview

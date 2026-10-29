@@ -70,7 +70,7 @@ export const CartDrawer: React.FC = () => {
               </div>
             ) : (
               items.map(item => (
-                <div key={item.id} className="flex gap-4 p-3 rounded-xl border border-cream-200/80 bg-cream-50/40">
+                <div key={item.id} className="flex gap-4 p-3 rounded-xl border border-cream-200 bg-cream-50">
                   <img
                     src={item.image}
                     alt={item.name}
@@ -131,7 +131,7 @@ export const CartDrawer: React.FC = () => {
 
           {/* Footer & Checkout CTAs */}
           {items.length > 0 && (
-            <div className="p-5 border-t border-cream-200 bg-cream-50/60 space-y-3">
+            <div className="p-5 border-t border-cream-200 bg-cream-50 space-y-3">
               <div className="space-y-1.5 text-xs text-charcoal-700">
                 <div className="flex justify-between">
                   <span>Subtotal</span>

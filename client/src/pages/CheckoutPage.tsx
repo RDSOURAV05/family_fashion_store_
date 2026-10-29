@@ -192,7 +192,7 @@ export const CheckoutPage: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
             {/* Customer Details Form (7 cols) */}
-            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200/80 shadow-soft">
+            <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200 shadow-soft">
               
               <div className="pb-6 border-b border-cream-200 mb-6">
                 <span className="text-xs font-semibold uppercase tracking-widest text-burgundy-700 font-serif">
@@ -218,7 +218,7 @@ export const CheckoutPage: React.FC = () => {
                     value={formData.fullName}
                     onChange={e => setFormData({ ...formData, fullName: e.target.value })}
                     placeholder="e.g. Priya Sharma"
-                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                       errors.fullName ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                     }`}
                   />
@@ -236,7 +236,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.phone}
                       onChange={e => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. 9876543210"
-                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                         errors.phone ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -267,7 +267,7 @@ export const CheckoutPage: React.FC = () => {
                     value={formData.deliveryAddress}
                     onChange={e => setFormData({ ...formData, deliveryAddress: e.target.value })}
                     placeholder="Flat / House No., Apartment, Street name, Nearby Landmark..."
-                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                    className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                       errors.deliveryAddress ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                     }`}
                   />
@@ -285,7 +285,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.city}
                       onChange={e => setFormData({ ...formData, city: e.target.value })}
                       placeholder="e.g. Kochi"
-                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                         errors.city ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -301,7 +301,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.state}
                       onChange={e => setFormData({ ...formData, state: e.target.value })}
                       placeholder="e.g. Kerala"
-                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                         errors.state ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -318,7 +318,7 @@ export const CheckoutPage: React.FC = () => {
                       value={formData.pinCode}
                       onChange={e => setFormData({ ...formData, pinCode: e.target.value })}
                       placeholder="e.g. 682001"
-                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:ring-1 transition ${
+                      className={`w-full py-3 px-4 rounded-xl border text-base sm:text-sm text-charcoal-900 bg-white focus:outline-none focus:ring-1 transition ${
                         errors.pinCode ? 'border-red-400 focus:ring-red-400' : 'border-cream-300 focus:border-burgundy-700 focus:ring-burgundy-700'
                       }`}
                     />
@@ -336,7 +336,7 @@ export const CheckoutPage: React.FC = () => {
                     value={formData.orderNotes}
                     onChange={e => setFormData({ ...formData, orderNotes: e.target.value })}
                     placeholder="e.g. Please deliver after 5 PM / Gift packaging requested"
-                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 transition"
+                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 transition"
                   />
                 </div>
 
@@ -359,7 +359,7 @@ export const CheckoutPage: React.FC = () => {
 
               {/* Online Payment Gateway Readiness Notice */}
               <div className="mt-8 pt-6 border-t border-cream-200">
-                <div className="p-4 rounded-2xl bg-cream-100/70 border border-cream-200/80 flex items-start gap-3">
+                <div className="p-4 rounded-2xl bg-cream-50 border border-cream-200 flex items-start gap-3">
                   <CreditCard className="w-5 h-5 text-burgundy-700 shrink-0 mt-0.5" />
                   <div className="text-xs text-charcoal-700 space-y-1">
                     <p className="font-semibold text-charcoal-900">
@@ -375,7 +375,7 @@ export const CheckoutPage: React.FC = () => {
             </div>
 
             {/* Order Items Review (5 cols) */}
-            <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-cream-200/80 shadow-soft space-y-6">
+            <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-soft space-y-6">
               
               <h3 className="font-serif text-xl font-semibold text-charcoal-900 pb-4 border-b border-cream-200">
                 Order Review ({items.length} {items.length === 1 ? 'item' : 'items'})

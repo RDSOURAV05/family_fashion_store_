@@ -1,122 +1,81 @@
-import React, { createContext, useContext, useState, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-export type ThemeMode = 'light' | 'dark' | 'bright' | 'system';
+export type ColorPalette = 'emerald' | 'wine' | 'noir' | 'dark';
 
 interface ThemeContextType {
-  mode: ThemeMode;
-  effectiveTheme: 'light' | 'dark' | 'bright';
+  palette: ColorPalette;
   isDark: boolean;
-  setThemeMode: (mode: ThemeMode) => void;
+  setPalette: (palette: ColorPalette) => void;
   toggleDarkMode: () => void;
-  cycleTheme: () => void;
+  cyclePalette: () => void;
 }
 
-const THEME_STORAGE_KEY = 'chic_store_theme';
+const PALETTE_STORAGE_KEY = 'chic_store_color_palette';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [mode, setModeState] = useState<ThemeMode>(() => {
+  const [palette, setPaletteState] = useState<ColorPalette>(() => {
     try {
-      const saved = localStorage.getItem(THEME_STORAGE_KEY) as ThemeMode | null;
-      if (saved && ['light', 'dark', 'bright', 'system'].includes(saved)) {
+      const saved = localStorage.getItem(PALETTE_STORAGE_KEY) as ColorPalette | null;
+      if (saved && ['emerald', 'wine', 'noir', 'dark'].includes(saved)) {
         return saved;
       }
     } catch (e) {
       // Ignore
     }
-    return 'system';
+    // Default to the new fresh, high-contrast Royal Emerald & Gold combination!
+    return 'emerald';
   });
 
-  const [systemIsDark, setSystemIsDark] = useState<boolean>(() => {
-    if (typeof window !== 'undefined' && window.matchMedia) {
-      return window.matchMedia('(prefers-color-scheme: dark)').matches;
-    }
-    return false;
-  });
+  const isDark = palette === 'dark';
 
-  // Listen to OS dark/light mode changes
-  useEffect(() => {
-    if (typeof window === 'undefined' || !window.matchMedia) return;
-
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    const handler = (e: MediaQueryListEvent) => {
-      setSystemIsDark(e.matches);
-    };
-
-    if (mediaQuery.addEventListener) {
-      mediaQuery.addEventListener('change', handler);
-      return () => mediaQuery.removeEventListener('change', handler);
-    } else if (mediaQuery.addListener) {
-      mediaQuery.addListener(handler);
-      return () => mediaQuery.removeListener(handler);
-    }
-  }, []);
-
-  const effectiveTheme: 'light' | 'dark' | 'bright' = useMemo(() => {
-    if (mode === 'system') {
-      return systemIsDark ? 'dark' : 'light';
-    }
-    return mode;
-  }, [mode, systemIsDark]);
-
-  const isDark = effectiveTheme === 'dark';
-
-  // Apply to document element
+  // Apply palette to document root
   useEffect(() => {
     const root = document.documentElement;
-    root.classList.remove('dark', 'theme-dark', 'theme-bright', 'theme-light');
-    root.removeAttribute('data-theme');
+    root.setAttribute('data-palette', palette);
+    root.classList.remove('dark', 'palette-emerald', 'palette-wine', 'palette-noir', 'palette-dark');
+    root.classList.add(`palette-${palette}`);
 
-    if (effectiveTheme === 'dark') {
-      root.classList.add('dark', 'theme-dark');
-      root.setAttribute('data-theme', 'dark');
+    if (palette === 'dark') {
+      root.classList.add('dark');
       root.style.colorScheme = 'dark';
-    } else if (effectiveTheme === 'bright') {
-      root.classList.add('theme-bright');
-      root.setAttribute('data-theme', 'bright');
-      root.style.colorScheme = 'light';
     } else {
-      root.classList.add('theme-light');
-      root.setAttribute('data-theme', 'light');
       root.style.colorScheme = 'light';
     }
-  }, [effectiveTheme]);
+  }, [palette]);
 
-  const setThemeMode = (newMode: ThemeMode) => {
-    setModeState(newMode);
+  const setPalette = (newPalette: ColorPalette) => {
+    setPaletteState(newPalette);
     try {
-      localStorage.setItem(THEME_STORAGE_KEY, newMode);
+      localStorage.setItem(PALETTE_STORAGE_KEY, newPalette);
     } catch (e) {
       console.error(e);
     }
   };
 
   const toggleDarkMode = () => {
-    // Quick 1-click toggle between light and dark
     if (isDark) {
-      setThemeMode('light');
+      setPalette('emerald');
     } else {
-      setThemeMode('dark');
+      setPalette('dark');
     }
   };
 
-  const cycleTheme = () => {
-    // Cycle through: light -> dark -> bright -> system -> light
-    const order: ThemeMode[] = ['light', 'dark', 'bright', 'system'];
-    const nextIdx = (order.indexOf(mode) + 1) % order.length;
-    setThemeMode(order[nextIdx]);
+  const cyclePalette = () => {
+    const order: ColorPalette[] = ['emerald', 'wine', 'noir', 'dark'];
+    const nextIdx = (order.indexOf(palette) + 1) % order.length;
+    setPalette(order[nextIdx]);
   };
 
   return (
     <ThemeContext.Provider
       value={{
-        mode,
-        effectiveTheme,
+        palette,
         isDark,
-        setThemeMode,
+        setPalette,
         toggleDarkMode,
-        cycleTheme
+        cyclePalette
       }}
     >
       {children}

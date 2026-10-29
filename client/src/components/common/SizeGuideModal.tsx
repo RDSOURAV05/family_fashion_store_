@@ -110,7 +110,7 @@ export const SizeGuideModal: React.FC<SizeGuideModalProps> = ({ isOpen, onClose,
               </table>
             </div>
 
-            <div className="bg-cream-100/80 p-4 rounded-xl border border-cream-200 text-xs text-charcoal-700 space-y-1.5">
+            <div className="bg-cream-100 p-4 rounded-xl border border-cream-200 text-xs text-charcoal-700 space-y-1.5">
               <p className="font-semibold text-charcoal-900">Measuring Tips:</p>
               <p>• <strong>Bust:</strong> Measure around the fullest part of your chest with measuring tape level.</p>
               <p>• <strong>Waist:</strong> Measure around your natural waistline, where your trousers or skirts sit.</p>

@@ -114,7 +114,7 @@ export const AdminLoginPage: React.FC = () => {
                   value={username}
                   onChange={e => setUsername(e.target.value)}
                   placeholder="chicadmin"
-                  className="w-full py-2.5 pl-10 pr-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700"
+                  className="w-full py-2.5 pl-10 pr-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700"
                 />
               </div>
             </div>
@@ -131,7 +131,7 @@ export const AdminLoginPage: React.FC = () => {
                   value={password}
                   onChange={e => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full py-2.5 pl-10 pr-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700"
+                  className="w-full py-2.5 pl-10 pr-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700"
                 />
               </div>
             </div>

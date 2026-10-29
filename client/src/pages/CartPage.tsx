@@ -64,7 +64,7 @@ export const CartPage: React.FC = () => {
             {items.map(item => (
               <div
                 key={item.id}
-                className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 bg-white rounded-2xl border border-cream-200/80 shadow-soft"
+                className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-6 bg-white rounded-2xl border border-cream-200 shadow-soft"
               >
                 <img
                   src={item.image}
@@ -133,7 +133,7 @@ export const CartPage: React.FC = () => {
           </div>
 
           {/* Order Summary (4 cols) */}
-          <div className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-cream-200/80 shadow-soft space-y-6">
+          <div className="lg:col-span-4 bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-soft space-y-6">
             <h3 className="font-serif text-xl font-semibold text-charcoal-900 pb-4 border-b border-cream-200">
               Order Summary
             </h3>

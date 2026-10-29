@@ -72,7 +72,7 @@ export const ContactPage: React.FC = () => {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Direct WhatsApp Box */}
-            <div className="p-6 rounded-3xl bg-white border border-cream-200/80 shadow-soft space-y-4">
+            <div className="p-6 rounded-3xl bg-white border border-cream-200 shadow-soft space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-md">
                   <WhatsAppIcon size={24} className="fill-current text-white" />
@@ -102,7 +102,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Direct Phone Call Box */}
-            <div className="p-6 rounded-3xl bg-white border border-cream-200/80 shadow-soft space-y-4">
+            <div className="p-6 rounded-3xl bg-white border border-cream-200 shadow-soft space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-burgundy-800 text-white flex items-center justify-center shadow-md">
                   <Phone className="w-5 h-5" />
@@ -130,7 +130,7 @@ export const ContactPage: React.FC = () => {
             </div>
 
             {/* Official Instagram Profile Box */}
-            <div className="p-6 rounded-3xl bg-white border border-cream-200/80 shadow-soft space-y-4">
+            <div className="p-6 rounded-3xl bg-white border border-cream-200 shadow-soft space-y-4">
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-tr from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white flex items-center justify-center shadow-md">
                   <InstagramIcon size={24} className="fill-current text-white" />
@@ -162,7 +162,7 @@ export const ContactPage: React.FC = () => {
           </div>
 
           {/* Contact Form Column (7 cols) */}
-          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200/80 shadow-soft">
+          <div className="lg:col-span-7 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200 shadow-soft">
             <h2 className="font-serif text-2xl sm:text-3xl text-charcoal-900 mb-2">
               Send an Inquiry
             </h2>
@@ -200,7 +200,7 @@ export const ContactPage: React.FC = () => {
                   value={formData.name}
                   onChange={e => setFormData({ ...formData, name: e.target.value })}
                   placeholder="Enter your name"
-                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export const ContactPage: React.FC = () => {
                     value={formData.phone}
                     onChange={e => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="e.g. 9876543210"
-                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                   />
                 </div>
 
@@ -228,7 +228,7 @@ export const ContactPage: React.FC = () => {
                     value={formData.email}
                     onChange={e => setFormData({ ...formData, email: e.target.value })}
                     placeholder="name@example.com"
-                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                    className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                   />
                 </div>
               </div>
@@ -240,7 +240,7 @@ export const ContactPage: React.FC = () => {
                 <select
                   value={formData.subject}
                   onChange={e => setFormData({ ...formData, subject: e.target.value })}
-                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                 >
                   <option value="General Saree / Outfit Inquiry">General Saree / Outfit Inquiry</option>
                   <option value="Sizing & Fit Advice">Sizing & Fit Advice</option>
@@ -260,7 +260,7 @@ export const ContactPage: React.FC = () => {
                   value={formData.message}
                   onChange={e => setFormData({ ...formData, message: e.target.value })}
                   placeholder="How may we assist you today? Feel free to ask about fabric textures, delivery timelines, etc."
-                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-cream-50/50 focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
+                  className="w-full py-2.5 px-4 rounded-xl border border-cream-300 text-sm text-charcoal-900 bg-white focus:outline-none focus:border-burgundy-700 focus:ring-1 focus:ring-burgundy-700 transition"
                 />
               </div>
 

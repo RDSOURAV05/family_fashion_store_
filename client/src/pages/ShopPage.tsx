@@ -190,7 +190,7 @@ export const ShopPage: React.FC = () => {
         </div>
 
         {/* Toolbar: Filter Toggles & Sorting */}
-        <div className="flex flex-wrap items-center justify-between gap-4 py-4 px-5 rounded-2xl bg-white border border-cream-200/80 shadow-soft mb-8">
+        <div className="flex flex-wrap items-center justify-between gap-4 py-4 px-5 rounded-2xl bg-white border border-cream-200 shadow-soft mb-8">
           
           <div className="flex items-center gap-3">
             <button
@@ -241,7 +241,7 @@ export const ShopPage: React.FC = () => {
           
           {/* Desktop Sidebar Filters */}
           <aside className="hidden lg:block lg:col-span-1 space-y-6">
-            <div className="p-6 bg-white rounded-2xl border border-cream-200/80 shadow-soft space-y-6">
+            <div className="p-6 bg-white rounded-2xl border border-cream-200 shadow-soft space-y-6">
               
               <div className="flex items-center justify-between pb-4 border-b border-cream-200">
                 <h3 className="font-serif text-lg font-semibold text-charcoal-900 flex items-center gap-2">

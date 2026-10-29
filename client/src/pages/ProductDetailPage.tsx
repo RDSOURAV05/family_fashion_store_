@@ -126,7 +126,7 @@ export const ProductDetailPage: React.FC = () => {
         </nav>
 
         {/* Product Details Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200/80 shadow-soft">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 bg-white p-6 sm:p-10 rounded-3xl border border-cream-200 shadow-soft">
           
           {/* Gallery Column (5 cols) */}
           <div className="lg:col-span-6 flex flex-col-reverse sm:flex-row gap-4">
@@ -379,15 +379,15 @@ export const ProductDetailPage: React.FC = () => {
 
               {/* Boutique Assurance Cards */}
               <div className="grid grid-cols-3 gap-3 pt-4 text-center">
-                <div className="p-3 rounded-xl bg-cream-50 border border-cream-200/60">
+                <div className="p-3 rounded-xl bg-white border border-cream-200 shadow-sm">
                   <Truck className="w-4 h-4 mx-auto text-burgundy-700 mb-1" />
                   <span className="block text-[10px] font-medium text-charcoal-800">Complimentary Shipping</span>
                 </div>
-                <div className="p-3 rounded-xl bg-cream-50 border border-cream-200/60">
+                <div className="p-3 rounded-xl bg-white border border-cream-200 shadow-sm">
                   <RefreshCw className="w-4 h-4 mx-auto text-burgundy-700 mb-1" />
                   <span className="block text-[10px] font-medium text-charcoal-800">Easy Exchange</span>
                 </div>
-                <div className="p-3 rounded-xl bg-cream-50 border border-cream-200/60">
+                <div className="p-3 rounded-xl bg-white border border-cream-200 shadow-sm">
                   <ShieldCheck className="w-4 h-4 mx-auto text-burgundy-700 mb-1" />
                   <span className="block text-[10px] font-medium text-charcoal-800">100% Authentic Quality</span>
                 </div>
@@ -428,7 +428,7 @@ export const ProductDetailPage: React.FC = () => {
       />
 
       {/* Mobile Sticky Action Bar */}
-      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 backdrop-blur-md border-t border-cream-200/90 p-3 px-4 flex gap-2.5 shadow-2xl">
+      <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white backdrop-blur-md border-t border-cream-200 p-3 px-4 flex gap-2.5 shadow-2xl">
         <button
           onClick={handleAddToCart}
           disabled={!product.inStock}

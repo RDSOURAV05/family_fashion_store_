@@ -5,16 +5,16 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
   
   body {
-    background-color: #FDFBF7;
-    color: #1f1b1a;
+    background-color: var(--theme-bg-page);
+    color: var(--theme-text-body);
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.25s ease, color 0.25s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
   }
 
   h1, h2, h3, h4, .font-serif {
@@ -22,251 +22,268 @@
   }
 }
 
-/* On mobile phones, boost thin text weights so words are always sharp and readable */
+/* On mobile phones, boost text weights so words are always 100% sharp and readable */
 @media (max-width: 640px) {
   .font-light {
     font-weight: 400 !important;
   }
   
-  p, span, label, input, button {
+  p, span, label, input, button, a {
     -webkit-text-size-adjust: 100%;
   }
 }
 
 /* =========================================================================
-   1. DEFAULT LIGHT BOUTIQUE THEME - HIGH READABILITY ENHANCEMENTS
+   COLOR COMBINATION PALETTES
    ========================================================================= */
-.theme-light body,
-:root:not(.dark):not(.theme-bright) body {
-  background-color: #FDFBF7;
+
+/* 1. PALETTE: ROYAL EMERALD & CHAMPAGNE GOLD (DEFAULT FLAGSHIP) */
+:root,
+[data-palette="emerald"],
+.palette-emerald {
+  --theme-bg-page: #FAF9F6;
+  --theme-bg-surface: #FFFFFF;
+  --theme-bg-alt: #F1F4F2;
+  --theme-bg-pill: #E8EFEA;
+  
+  --theme-text-heading: #0A241C;
+  --theme-text-body: #1A2822;
+  --theme-text-muted: #42544C;
+  
+  --theme-brand: #0C3E30;
+  --theme-brand-hover: #125743;
+  --theme-brand-pill: #E8EFEA;
+  --theme-brand-accent: #C59F54;
+  
+  --theme-border: #DDE5E0;
+  --theme-border-strong: #C4D2CB;
+  --theme-announcement: #092C22;
 }
 
-/* Boost readability of muted and secondary text on phones */
-:root:not(.dark) .text-charcoal-700 {
-  color: #2f2827 !important;
+/* 2. PALETTE: ROYAL RUBY WINE & ROSE GOLD */
+[data-palette="wine"],
+.palette-wine {
+  --theme-bg-page: #FCFAF8;
+  --theme-bg-surface: #FFFFFF;
+  --theme-bg-alt: #F6EFF0;
+  --theme-bg-pill: #F7E9EC;
+  
+  --theme-text-heading: #280B12;
+  --theme-text-body: #2B151B;
+  --theme-text-muted: #5D3B43;
+  
+  --theme-brand: #581121;
+  --theme-brand-hover: #75182D;
+  --theme-brand-pill: #F9EBEE;
+  --theme-brand-accent: #C27D6E;
+  
+  --theme-border: #EDE0E2;
+  --theme-border-strong: #D9C5CA;
+  --theme-announcement: #420A17;
 }
 
-:root:not(.dark) .text-charcoal-800 {
-  color: #1a1615 !important;
+/* 3. PALETTE: LUXE NOIR & ARTISAN GOLD (MONOCHROME COUTURE) */
+[data-palette="noir"],
+.palette-noir {
+  --theme-bg-page: #FFFFFF;
+  --theme-bg-surface: #FFFFFF;
+  --theme-bg-alt: #F4F4F5;
+  --theme-bg-pill: #EDEDF0;
+  
+  --theme-text-heading: #09090B;
+  --theme-text-body: #18181B;
+  --theme-text-muted: #52525B;
+  
+  --theme-brand: #18181B;
+  --theme-brand-hover: #27272A;
+  --theme-brand-pill: #F4F4F5;
+  --theme-brand-accent: #C9A050;
+  
+  --theme-border: #E4E4E7;
+  --theme-border-strong: #D4D4D8;
+  --theme-announcement: #09090B;
 }
 
-:root:not(.dark) .text-charcoal-900 {
-  color: #0d0a0a !important;
+/* 4. PALETTE: MIDNIGHT VELVET DARK MODE */
+html.dark,
+[data-palette="dark"],
+.palette-dark {
+  --theme-bg-page: #0E1210;
+  --theme-bg-surface: #171D1A;
+  --theme-bg-alt: #1F2723;
+  --theme-bg-pill: #28332E;
+  
+  --theme-text-heading: #FFFFFF;
+  --theme-text-body: #E8EDE9;
+  --theme-text-muted: #B3C2B9;
+  
+  --theme-brand: #5EEAD4;
+  --theme-brand-hover: #2DD4BF;
+  --theme-brand-pill: #263830;
+  --theme-brand-accent: #E5C378;
+  
+  --theme-border: #2C3932;
+  --theme-border-strong: #3D4F46;
+  --theme-announcement: #070908;
 }
 
 /* =========================================================================
-   2. BRIGHT HIGH-CONTRAST MODE (Optimum Outdoor / Direct Sunlight Reading)
+   GLOBAL CLASS MAPPINGS TO PALETTE VARIABLES
    ========================================================================= */
-.theme-bright {
-  color-scheme: light;
+
+/* Backgrounds */
+.bg-cream-50 {
+  background-color: var(--theme-bg-page) !important;
 }
 
-.theme-bright body {
-  background-color: #FFFFFF !important;
-  color: #0A0A0A !important;
+.bg-cream-100 {
+  background-color: var(--theme-bg-alt) !important;
 }
 
-.theme-bright .bg-cream-50 {
-  background-color: #FFFFFF !important;
+.bg-cream-200 {
+  background-color: var(--theme-border) !important;
 }
 
-.theme-bright .bg-cream-100 {
-  background-color: #F5F5F7 !important;
+.bg-white {
+  background-color: var(--theme-bg-surface) !important;
 }
 
-.theme-bright .bg-cream-200 {
-  background-color: #E8E8EC !important;
+.bg-rose-50 {
+  background-color: var(--theme-brand-pill) !important;
+  color: var(--theme-brand) !important;
 }
 
-.theme-bright .bg-white {
-  background-color: #FFFFFF !important;
-  border-color: #E0E0E6 !important;
+.bg-rose-100 {
+  background-color: var(--theme-bg-pill) !important;
 }
 
-.theme-bright .text-charcoal-900 {
-  color: #000000 !important;
-  font-weight: 600 !important;
+/* Text Colors */
+.text-charcoal-900 {
+  color: var(--theme-text-heading) !important;
+  font-weight: 600;
 }
 
-.theme-bright .text-charcoal-800 {
-  color: #111111 !important;
+.text-charcoal-800 {
+  color: var(--theme-text-body) !important;
 }
 
-.theme-bright .text-charcoal-700 {
-  color: #222222 !important;
-  font-weight: 500 !important;
+.text-charcoal-700 {
+  color: var(--theme-text-muted) !important;
+  font-weight: 500;
 }
 
-.theme-bright .border-cream-200,
-.theme-bright .border-cream-300 {
-  border-color: #D8D8E0 !important;
+.text-charcoal-600 {
+  color: var(--theme-text-muted) !important;
 }
 
-/* =========================================================================
-   3. MIDNIGHT BOUTIQUE DARK MODE (Luxury Dark Palette with High Contrast)
-   ========================================================================= */
-html.dark {
-  color-scheme: dark;
+.text-burgundy-900,
+.text-burgundy-800 {
+  color: var(--theme-brand) !important;
 }
 
-html.dark body {
-  background-color: #0E0C0D !important;
-  color: #F5EFE8 !important;
+.text-burgundy-700 {
+  color: var(--theme-brand) !important;
+  font-weight: 600;
 }
 
-/* Dark Backgrounds */
-html.dark .bg-cream-50 {
-  background-color: #0E0C0D !important;
+/* Buttons */
+.bg-burgundy-800,
+.bg-burgundy-900 {
+  background-color: var(--theme-brand) !important;
+  color: #FFFFFF !important;
 }
 
-html.dark .bg-cream-100 {
-  background-color: #161314 !important;
+.bg-burgundy-800:hover,
+.bg-burgundy-900:hover {
+  background-color: var(--theme-brand-hover) !important;
 }
 
-html.dark .bg-cream-200 {
-  background-color: #221C1E !important;
+/* In Dark mode specifically, brand button background */
+html.dark .bg-burgundy-800,
+html.dark .bg-burgundy-900 {
+  background-color: #195240 !important;
+  color: #FFFFFF !important;
 }
 
-html.dark .bg-cream-300 {
-  background-color: #332A2D !important;
+html.dark .bg-burgundy-800:hover,
+html.dark .bg-burgundy-900:hover {
+  background-color: #216B54 !important;
 }
 
-/* Dark Card & Surface backgrounds */
-html.dark .bg-white,
-html.dark .bg-white\/95,
-html.dark .bg-white\/90,
-html.dark .bg-white\/80 {
-  background-color: #181416 !important;
+/* Borders */
+.border-cream-100,
+.border-cream-200 {
+  border-color: var(--theme-border) !important;
 }
 
-html.dark .bg-rose-50 {
-  background-color: #281B20 !important;
+.border-cream-300 {
+  border-color: var(--theme-border-strong) !important;
 }
 
-html.dark .bg-rose-100 {
-  background-color: #382229 !important;
+.divide-cream-100 > :not([hidden]) ~ :not([hidden]),
+.divide-cream-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--theme-border) !important;
 }
 
-/* Text Readability Overrides in Dark Mode */
-html.dark .text-charcoal-900 {
-  color: #FCF8F5 !important;
+/* Announcement Bar */
+.announcement-bar-bg {
+  background-color: var(--theme-announcement) !important;
+  color: #FFFFFF !important;
 }
 
-html.dark .text-charcoal-800 {
-  color: #F2EBE4 !important;
+/* Form Controls & Inputs */
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+  background-color: var(--theme-bg-surface) !important;
+  color: var(--theme-text-heading) !important;
+  border-color: var(--theme-border-strong) !important;
 }
 
-html.dark .text-charcoal-700 {
-  color: #D5C9BD !important;
+input::placeholder,
+textarea::placeholder {
+  color: var(--theme-text-muted) !important;
+  opacity: 0.8;
 }
 
-html.dark .text-charcoal-600 {
-  color: #B8ABA0 !important;
+/* Shadows */
+.shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(10, 36, 28, 0.06) !important;
 }
 
-/* Burgundy elements become bright vibrant rose-burgundy for crisp contrast */
-html.dark .text-burgundy-900 {
-  color: #FDA4AF !important;
-}
-
-html.dark .text-burgundy-800 {
-  color: #F87171 !important;
-}
-
-html.dark .text-burgundy-700 {
-  color: #FB7185 !important;
-}
-
-/* Dark Mode Borders */
-html.dark .border-cream-100,
-html.dark .border-cream-200,
-html.dark .border-cream-200\/80,
-html.dark .border-cream-200\/60 {
-  border-color: #302629 !important;
-}
-
-html.dark .border-cream-300 {
-  border-color: #44363C !important;
-}
-
-html.dark .divide-cream-100 > :not([hidden]) ~ :not([hidden]),
-html.dark .divide-cream-200 > :not([hidden]) ~ :not([hidden]) {
-  border-color: #302629 !important;
-}
-
-/* Dark Mode Form Inputs */
-html.dark input[type="text"],
-html.dark input[type="tel"],
-html.dark input[type="email"],
-html.dark input[type="number"],
-html.dark input[type="password"],
-html.dark input[type="search"],
-html.dark textarea,
-html.dark select {
-  background-color: #201A1D !important;
-  color: #FCF8F5 !important;
-  border-color: #46373D !important;
-}
-
-html.dark input::placeholder,
-html.dark textarea::placeholder {
-  color: #9C8F87 !important;
-}
-
-/* Dark Mode Shadows */
 html.dark .shadow-soft {
   box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+}
+
+.shadow-elevated {
+  box-shadow: 0 10px 30px -4px rgba(10, 36, 28, 0.1) !important;
 }
 
 html.dark .shadow-elevated {
   box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.6) !important;
 }
 
-html.dark .shadow-premium {
-  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75) !important;
-}
-
-/* Dark Mode Quick Action & Filter Button states */
-html.dark .hover\:bg-cream-100:hover {
-  background-color: #261F23 !important;
-}
-
-html.dark .hover\:bg-cream-200:hover {
-  background-color: #33292F !important;
-}
-
-html.dark .hover\:text-burgundy-700:hover,
-html.dark .hover\:text-burgundy-800:hover {
-  color: #FDA4AF !important;
-}
-
-/* Dark Mode Announcement Bar */
-html.dark .announcement-bar-bg {
-  background-color: #0A0809 !important;
-  color: #FBCFE8 !important;
-}
-
-/* Dark Mode Mobile and Sticky Drawers */
-html.dark .bg-white\/95 {
-  background-color: rgba(24, 20, 22, 0.96) !important;
-}
-
 /* Hero Gradient Overlay for perfect mobile text contrast */
 .hero-gradient-overlay {
-  background: linear-gradient(to right, rgba(253, 251, 247, 0.96) 0%, rgba(253, 251, 247, 0.85) 60%, rgba(253, 251, 247, 0.1) 100%);
+  background: linear-gradient(to right, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.85) 60%, rgba(250, 249, 246, 0.1) 100%);
 }
 
 html.dark .hero-gradient-overlay {
-  background: linear-gradient(to right, rgba(14, 12, 13, 0.96) 0%, rgba(14, 12, 13, 0.88) 60%, rgba(14, 12, 13, 0.2) 100%) !important;
+  background: linear-gradient(to right, rgba(14, 18, 16, 0.96) 0%, rgba(14, 18, 16, 0.88) 60%, rgba(14, 18, 16, 0.2) 100%) !important;
 }
 
 @media (max-width: 640px) {
   .hero-gradient-overlay {
-    background: linear-gradient(to bottom, rgba(253, 251, 247, 0.96) 0%, rgba(253, 251, 247, 0.88) 75%, rgba(253, 251, 247, 0.3) 100%) !important;
+    background: linear-gradient(to bottom, rgba(250, 249, 246, 0.96) 0%, rgba(250, 249, 246, 0.88) 75%, rgba(250, 249, 246, 0.3) 100%) !important;
     width: 100% !important;
   }
   html.dark .hero-gradient-overlay {
-    background: linear-gradient(to bottom, rgba(14, 12, 13, 0.97) 0%, rgba(14, 12, 13, 0.90) 75%, rgba(14, 12, 13, 0.4) 100%) !important;
+    background: linear-gradient(to bottom, rgba(14, 18, 16, 0.97) 0%, rgba(14, 18, 16, 0.90) 75%, rgba(14, 18, 16, 0.4) 100%) !important;
     width: 100% !important;
   }
 }
@@ -278,24 +295,16 @@ html.dark .hero-gradient-overlay {
 }
 
 ::-webkit-scrollbar-track {
-  background: #FAF6F0;
-}
-
-html.dark ::-webkit-scrollbar-track {
-  background: #141012;
+  background: var(--theme-bg-alt);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #DDA7A5;
+  background: var(--theme-border-strong);
   border-radius: 4px;
 }
 
-html.dark ::-webkit-scrollbar-thumb {
-  background: #5A3E46;
-}
-
 ::-webkit-scrollbar-thumb:hover {
-  background: #B86B75;
+  background: var(--theme-brand);
 }
 
 /* Subtle image hover zoom */

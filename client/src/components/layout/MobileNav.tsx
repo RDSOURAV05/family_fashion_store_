@@ -100,7 +100,7 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, links }) 
         </div>
 
         {/* Official Social Contact Buttons in Mobile Menu */}
-        <div className="p-5 border-t border-cream-200 bg-cream-50/70 space-y-3">
+        <div className="p-5 border-t border-cream-200 bg-cream-50 space-y-3">
           <a
             href={`https://wa.me/${STORE_WHATSAPP_NUMBER}`}
             target="_blank"

@@ -178,7 +178,7 @@ export const AdminSettingsPage: React.FC = () => {
           </div>
 
           {/* Locked Brand Info Section */}
-          <div className="pt-6 border-t border-cream-200 bg-cream-50/60 p-4 rounded-2xl border border-cream-200/60 space-y-3">
+          <div className="pt-6 border-t border-cream-200 bg-cream-50 p-5 rounded-2xl border border-cream-200 space-y-3">
             <h4 className="font-serif text-sm font-semibold text-charcoal-900">
               Official Store Brand Identifiers
             </h4>
