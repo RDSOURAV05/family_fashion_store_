@@ -231,6 +231,33 @@ html.dark .bg-burgundy-900:hover {
   color: #FFFFFF !important;
 }
 
+/* Festive Editorial Banner Styles - Guaranteed Rich Contrast Across All Themes */
+.festive-editorial-banner {
+  background: linear-gradient(135deg, #07271E 0%, #0D3E31 50%, #051C15 100%) !important;
+  color: #FFFFFF !important;
+}
+
+[data-palette="wine"] .festive-editorial-banner {
+  background: linear-gradient(135deg, #3A0713 0%, #581121 50%, #26030B 100%) !important;
+}
+
+[data-palette="noir"] .festive-editorial-banner {
+  background: linear-gradient(135deg, #09090B 0%, #18181B 50%, #000000 100%) !important;
+}
+
+html.dark .festive-editorial-banner,
+[data-palette="dark"] .festive-editorial-banner {
+  background: linear-gradient(135deg, #050806 0%, #101815 50%, #030504 100%) !important;
+}
+
+.festive-editorial-banner h2 {
+  color: #FFFFFF !important;
+}
+
+.festive-editorial-banner p {
+  color: rgba(255, 255, 255, 0.92) !important;
+}
+
 /* Form Controls & Inputs */
 input[type="text"],
 input[type="tel"],

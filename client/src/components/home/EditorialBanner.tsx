@@ -8,7 +8,7 @@ export const EditorialBanner: React.FC = () => {
   return (
     <section className="py-16 sm:py-20 bg-cream-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden bg-burgundy-950 text-white shadow-2xl">
+        <div className="relative rounded-3xl overflow-hidden festive-editorial-banner shadow-2xl">
           
           <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[480px]">
             {/* Visual Column */}
@@ -18,31 +18,31 @@ export const EditorialBanner: React.FC = () => {
                 alt="Festive Heritage Edit at Chic Store"
                 className="w-full h-full object-cover object-center filter brightness-[0.92]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-burgundy-950/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/80 via-transparent to-transparent" />
             </div>
 
             {/* Content Column */}
             <div className="lg:col-span-6 p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6">
-              <div className="inline-flex items-center gap-2 text-rose-300 text-xs uppercase tracking-[0.25em] font-serif">
-                <Sparkles className="w-3.5 h-3.5 text-gold-400" />
+              <div className="inline-flex items-center gap-2 text-gold-400 text-xs uppercase tracking-[0.25em] font-serif font-semibold">
+                <Sparkles className="w-4 h-4 text-gold-400" />
                 <span>The Festive Heritage Edit</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal leading-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight text-white drop-shadow-sm">
                 Grace in Every Thread, Royalty in Every Fold.
               </h2>
 
-              <p className="text-sm sm:text-base text-cream-200/90 font-light leading-relaxed">
+              <p className="text-sm sm:text-base text-white/90 font-normal leading-relaxed">
                 Step into celebration season with our handpicked festive sarees, embellished chanderi sets, and rich silk silhouettes. Tailored to make every festival, pooja, and wedding ceremony unforgettable.
               </p>
 
               <div className="flex flex-wrap items-center gap-4 pt-2">
                 <Link
                   to="/shop?category=Festive%20Collection"
-                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-cream-50 text-burgundy-950 hover:bg-white text-xs font-semibold uppercase tracking-wider transition shadow-md hover:shadow-lg"
+                  className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white hover:bg-cream-50 text-charcoal-900 font-bold text-xs uppercase tracking-wider transition shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
                 >
                   <span>Explore Festive Edit</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 text-burgundy-800" />
                 </Link>
 
                 <WhatsAppButton
