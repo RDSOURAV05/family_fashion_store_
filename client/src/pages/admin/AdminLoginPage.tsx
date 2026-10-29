@@ -24,14 +24,40 @@ export const AdminLoginPage: React.FC = () => {
         body: JSON.stringify({ username, password })
       });
 
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        throw new Error(data.message || 'Invalid username or password');
+      if (res.ok) {
+        const data = await res.json();
+        if (data.success) {
+          login(data.token, data.admin);
+          navigate('/admin/dashboard');
+          return;
+        }
+      }
+      
+      // Fallback for static hosting (e.g. GitHub Pages)
+      if (username === 'chicadmin' && password === 'ChicStore@2026!') {
+        login('gh_pages_admin_token_2026', {
+          id: 'admin-1',
+          username: 'chicadmin',
+          name: 'Store Manager',
+          role: 'admin'
+        });
+        navigate('/admin/dashboard');
+        return;
       }
 
-      login(data.token, data.admin);
-      navigate('/admin/dashboard');
+      throw new Error('Invalid username or password');
     } catch (err: any) {
+      // If server unreachable, check credentials for static demo
+      if (username === 'chicadmin' && password === 'ChicStore@2026!') {
+        login('gh_pages_admin_token_2026', {
+          id: 'admin-1',
+          username: 'chicadmin',
+          name: 'Store Manager',
+          role: 'admin'
+        });
+        navigate('/admin/dashboard');
+        return;
+      }
       setError(err.message || 'Login failed. Please check credentials.');
     } finally {
       setLoading(false);

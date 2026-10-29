@@ -39,9 +39,19 @@ export const AdminOrdersPage: React.FC = () => {
       const res = await fetch('/api/orders', {
         headers: { Authorization: `Bearer ${token}` }
       }).then(r => r.json());
-      if (res.success) setOrders(res.data);
+      if (res.success) {
+        setOrders(res.data);
+        return;
+      }
     } catch (err) {
-      console.error(err);
+      // Static fallback
+    }
+
+    try {
+      const saved = localStorage.getItem('chic_store_orders');
+      setOrders(saved ? JSON.parse(saved) : []);
+    } catch {
+      setOrders([]);
     } finally {
       setLoading(false);
     }
@@ -61,12 +71,22 @@ export const AdminOrdersPage: React.FC = () => {
       const data = await res.json();
       if (data.success) {
         setOrders(prev => prev.map(o => (o.id === orderId ? { ...o, status: newStatus } : o)));
+        return;
       }
     } catch (err) {
-      console.error(err);
-    } finally {
-      setUpdatingId(null);
+      // Local update
     }
+
+    setOrders(prev => {
+      const updated = prev.map(o => (o.id === orderId ? { ...o, status: newStatus } : o));
+      try {
+        localStorage.setItem('chic_store_orders', JSON.stringify(updated));
+      } catch (e) {
+        console.error(e);
+      }
+      return updated;
+    });
+    setUpdatingId(null);
   };
 
   const filteredOrders = orders.filter(o => {

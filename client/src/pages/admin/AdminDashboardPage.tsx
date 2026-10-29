@@ -4,6 +4,7 @@ import { Package, ShoppingBag, MessageSquare, Settings, LogOut, Plus, ExternalLi
 import { useAuth } from '../../context/AuthContext';
 import { Product, Order, ContactMessage } from '../../types';
 import { formatCurrency, formatDate } from '../../utils/formatters';
+import { fallbackProducts } from '../../data/initialProducts';
 
 export const AdminDashboardPage: React.FC = () => {
   const { admin, token, logout, isAuthenticated } = useAuth();
@@ -23,16 +24,46 @@ export const AdminDashboardPage: React.FC = () => {
     const fetchData = async () => {
       try {
         const [prodRes, ordRes, msgRes] = await Promise.all([
-          fetch('/api/products').then(r => r.json()),
-          fetch('/api/orders', { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()),
-          fetch('/api/contact', { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json())
+          fetch('/api/products').then(r => r.json()).catch(() => null),
+          fetch('/api/orders', { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null),
+          fetch('/api/contact', { headers: { Authorization: `Bearer ${token}` } }).then(r => r.json()).catch(() => null)
         ]);
 
-        if (prodRes.success) setProducts(prodRes.data);
-        if (ordRes.success) setOrders(ordRes.data);
-        if (msgRes.success) setMessages(msgRes.data);
+        if (prodRes && prodRes.success) {
+          setProducts(prodRes.data);
+        } else {
+          try {
+            const saved = localStorage.getItem('chic_store_custom_products');
+            setProducts(saved ? JSON.parse(saved) : fallbackProducts);
+          } catch {
+            setProducts(fallbackProducts);
+          }
+        }
+
+        if (ordRes && ordRes.success) {
+          setOrders(ordRes.data);
+        } else {
+          try {
+            const saved = localStorage.getItem('chic_store_orders');
+            setOrders(saved ? JSON.parse(saved) : []);
+          } catch {
+            setOrders([]);
+          }
+        }
+
+        if (msgRes && msgRes.success) {
+          setMessages(msgRes.data);
+        } else {
+          try {
+            const saved = localStorage.getItem('chic_contact_inquiries');
+            setMessages(saved ? JSON.parse(saved) : []);
+          } catch {
+            setMessages([]);
+          }
+        }
       } catch (err) {
         console.error('Error fetching admin data', err);
+        setProducts(fallbackProducts);
       } finally {
         setLoading(false);
       }

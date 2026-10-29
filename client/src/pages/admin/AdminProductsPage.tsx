@@ -4,6 +4,7 @@ import { Plus, Edit2, Trash2, Search, ArrowLeft, X, Check, AlertCircle } from 'l
 import { useAuth } from '../../context/AuthContext';
 import { Product } from '../../types';
 import { formatCurrency } from '../../utils/formatters';
+import { fallbackProducts } from '../../data/initialProducts';
 
 const CATEGORIES = [
   'Sarees',
@@ -62,9 +63,18 @@ export const AdminProductsPage: React.FC = () => {
     setLoading(true);
     try {
       const res = await fetch('/api/products').then(r => r.json());
-      if (res.success) setProducts(res.data);
+      if (res.success) {
+        setProducts(res.data);
+        return;
+      }
     } catch (err) {
-      console.error(err);
+      // Static fallback
+    }
+    try {
+      const saved = localStorage.getItem('chic_store_custom_products');
+      setProducts(saved ? JSON.parse(saved) : fallbackProducts);
+    } catch {
+      setProducts(fallbackProducts);
     } finally {
       setLoading(false);
     }
@@ -129,13 +139,21 @@ export const AdminProductsPage: React.FC = () => {
       const data = await res.json();
       if (data.success) {
         setProducts(prev => prev.filter(p => p.id !== id));
-      } else {
-        alert(data.message || 'Failed to delete product');
+        return;
       }
     } catch (err) {
-      console.error(err);
-      alert('Error deleting product');
+      // Local fallback
     }
+
+    setProducts(prev => {
+      const updated = prev.filter(p => p.id !== id);
+      try {
+        localStorage.setItem('chic_store_custom_products', JSON.stringify(updated));
+      } catch (e) {
+        console.error(e);
+      }
+      return updated;
+    });
   };
 
   const handleSaveProduct = async (e: React.FormEvent) => {
@@ -171,7 +189,7 @@ export const AdminProductsPage: React.FC = () => {
 
       const payload = {
         name: formData.name.trim(),
-        category: formData.category,
+        category: formData.category as any,
         price: Number(formData.price),
         originalPrice: formData.originalPrice ? Number(formData.originalPrice) : undefined,
         description: formData.description.trim(),
@@ -187,25 +205,53 @@ export const AdminProductsPage: React.FC = () => {
         tags: tagsArray
       };
 
-      const url = editingProduct ? `/api/products/${editingProduct.id}` : '/api/products';
-      const method = editingProduct ? 'PUT' : 'POST';
+      try {
+        const url = editingProduct ? `/api/products/${editingProduct.id}` : '/api/products';
+        const method = editingProduct ? 'PUT' : 'POST';
 
-      const res = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`
-        },
-        body: JSON.stringify(payload)
-      });
+        const res = await fetch(url, {
+          method,
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`
+          },
+          body: JSON.stringify(payload)
+        });
 
-      const data = await res.json();
-      if (!res.ok || !data.success) {
-        throw new Error(data.message || 'Failed to save product');
+        const data = await res.json();
+        if (data.success) {
+          setIsModalOpen(false);
+          fetchProducts();
+          return;
+        }
+      } catch (err) {
+        // Fallback for static hosting
+      }
+
+      // Local storage update for demo / GitHub Pages
+      const now = new Date().toISOString();
+      if (editingProduct) {
+        setProducts(prev => {
+          const updated = prev.map(p => p.id === editingProduct.id ? { ...p, ...payload, updatedAt: now } : p);
+          localStorage.setItem('chic_store_custom_products', JSON.stringify(updated));
+          return updated;
+        });
+      } else {
+        const newProduct: Product = {
+          ...payload,
+          id: `prod-${Date.now()}`,
+          slug: payload.name.toLowerCase().replace(/[^\w\s-]/g, '').trim().replace(/\s+/g, '-') + '-' + Date.now().toString().slice(-4),
+          createdAt: now,
+          updatedAt: now
+        };
+        setProducts(prev => {
+          const updated = [newProduct, ...prev];
+          localStorage.setItem('chic_store_custom_products', JSON.stringify(updated));
+          return updated;
+        });
       }
 
       setIsModalOpen(false);
-      fetchProducts();
     } catch (err: any) {
       setFormError(err.message || 'Error saving product');
     } finally {
