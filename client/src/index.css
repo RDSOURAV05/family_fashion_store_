@@ -5,16 +5,269 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
   
   body {
     background-color: #FDFBF7;
-    color: #2C2727;
+    color: #1f1b1a;
     font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.25s ease, color 0.25s ease;
   }
 
   h1, h2, h3, h4, .font-serif {
     font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* On mobile phones, boost thin text weights so words are always sharp and readable */
+@media (max-width: 640px) {
+  .font-light {
+    font-weight: 400 !important;
+  }
+  
+  p, span, label, input, button {
+    -webkit-text-size-adjust: 100%;
+  }
+}
+
+/* =========================================================================
+   1. DEFAULT LIGHT BOUTIQUE THEME - HIGH READABILITY ENHANCEMENTS
+   ========================================================================= */
+.theme-light body,
+:root:not(.dark):not(.theme-bright) body {
+  background-color: #FDFBF7;
+}
+
+/* Boost readability of muted and secondary text on phones */
+:root:not(.dark) .text-charcoal-700 {
+  color: #2f2827 !important;
+}
+
+:root:not(.dark) .text-charcoal-800 {
+  color: #1a1615 !important;
+}
+
+:root:not(.dark) .text-charcoal-900 {
+  color: #0d0a0a !important;
+}
+
+/* =========================================================================
+   2. BRIGHT HIGH-CONTRAST MODE (Optimum Outdoor / Direct Sunlight Reading)
+   ========================================================================= */
+.theme-bright {
+  color-scheme: light;
+}
+
+.theme-bright body {
+  background-color: #FFFFFF !important;
+  color: #0A0A0A !important;
+}
+
+.theme-bright .bg-cream-50 {
+  background-color: #FFFFFF !important;
+}
+
+.theme-bright .bg-cream-100 {
+  background-color: #F5F5F7 !important;
+}
+
+.theme-bright .bg-cream-200 {
+  background-color: #E8E8EC !important;
+}
+
+.theme-bright .bg-white {
+  background-color: #FFFFFF !important;
+  border-color: #E0E0E6 !important;
+}
+
+.theme-bright .text-charcoal-900 {
+  color: #000000 !important;
+  font-weight: 600 !important;
+}
+
+.theme-bright .text-charcoal-800 {
+  color: #111111 !important;
+}
+
+.theme-bright .text-charcoal-700 {
+  color: #222222 !important;
+  font-weight: 500 !important;
+}
+
+.theme-bright .border-cream-200,
+.theme-bright .border-cream-300 {
+  border-color: #D8D8E0 !important;
+}
+
+/* =========================================================================
+   3. MIDNIGHT BOUTIQUE DARK MODE (Luxury Dark Palette with High Contrast)
+   ========================================================================= */
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark body {
+  background-color: #0E0C0D !important;
+  color: #F5EFE8 !important;
+}
+
+/* Dark Backgrounds */
+html.dark .bg-cream-50 {
+  background-color: #0E0C0D !important;
+}
+
+html.dark .bg-cream-100 {
+  background-color: #161314 !important;
+}
+
+html.dark .bg-cream-200 {
+  background-color: #221C1E !important;
+}
+
+html.dark .bg-cream-300 {
+  background-color: #332A2D !important;
+}
+
+/* Dark Card & Surface backgrounds */
+html.dark .bg-white,
+html.dark .bg-white\/95,
+html.dark .bg-white\/90,
+html.dark .bg-white\/80 {
+  background-color: #181416 !important;
+}
+
+html.dark .bg-rose-50 {
+  background-color: #281B20 !important;
+}
+
+html.dark .bg-rose-100 {
+  background-color: #382229 !important;
+}
+
+/* Text Readability Overrides in Dark Mode */
+html.dark .text-charcoal-900 {
+  color: #FCF8F5 !important;
+}
+
+html.dark .text-charcoal-800 {
+  color: #F2EBE4 !important;
+}
+
+html.dark .text-charcoal-700 {
+  color: #D5C9BD !important;
+}
+
+html.dark .text-charcoal-600 {
+  color: #B8ABA0 !important;
+}
+
+/* Burgundy elements become bright vibrant rose-burgundy for crisp contrast */
+html.dark .text-burgundy-900 {
+  color: #FDA4AF !important;
+}
+
+html.dark .text-burgundy-800 {
+  color: #F87171 !important;
+}
+
+html.dark .text-burgundy-700 {
+  color: #FB7185 !important;
+}
+
+/* Dark Mode Borders */
+html.dark .border-cream-100,
+html.dark .border-cream-200,
+html.dark .border-cream-200\/80,
+html.dark .border-cream-200\/60 {
+  border-color: #302629 !important;
+}
+
+html.dark .border-cream-300 {
+  border-color: #44363C !important;
+}
+
+html.dark .divide-cream-100 > :not([hidden]) ~ :not([hidden]),
+html.dark .divide-cream-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #302629 !important;
+}
+
+/* Dark Mode Form Inputs */
+html.dark input[type="text"],
+html.dark input[type="tel"],
+html.dark input[type="email"],
+html.dark input[type="number"],
+html.dark input[type="password"],
+html.dark input[type="search"],
+html.dark textarea,
+html.dark select {
+  background-color: #201A1D !important;
+  color: #FCF8F5 !important;
+  border-color: #46373D !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #9C8F87 !important;
+}
+
+/* Dark Mode Shadows */
+html.dark .shadow-soft {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45) !important;
+}
+
+html.dark .shadow-elevated {
+  box-shadow: 0 10px 30px -4px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .shadow-premium {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.75) !important;
+}
+
+/* Dark Mode Quick Action & Filter Button states */
+html.dark .hover\:bg-cream-100:hover {
+  background-color: #261F23 !important;
+}
+
+html.dark .hover\:bg-cream-200:hover {
+  background-color: #33292F !important;
+}
+
+html.dark .hover\:text-burgundy-700:hover,
+html.dark .hover\:text-burgundy-800:hover {
+  color: #FDA4AF !important;
+}
+
+/* Dark Mode Announcement Bar */
+html.dark .announcement-bar-bg {
+  background-color: #0A0809 !important;
+  color: #FBCFE8 !important;
+}
+
+/* Dark Mode Mobile and Sticky Drawers */
+html.dark .bg-white\/95 {
+  background-color: rgba(24, 20, 22, 0.96) !important;
+}
+
+/* Hero Gradient Overlay for perfect mobile text contrast */
+.hero-gradient-overlay {
+  background: linear-gradient(to right, rgba(253, 251, 247, 0.96) 0%, rgba(253, 251, 247, 0.85) 60%, rgba(253, 251, 247, 0.1) 100%);
+}
+
+html.dark .hero-gradient-overlay {
+  background: linear-gradient(to right, rgba(14, 12, 13, 0.96) 0%, rgba(14, 12, 13, 0.88) 60%, rgba(14, 12, 13, 0.2) 100%) !important;
+}
+
+@media (max-width: 640px) {
+  .hero-gradient-overlay {
+    background: linear-gradient(to bottom, rgba(253, 251, 247, 0.96) 0%, rgba(253, 251, 247, 0.88) 75%, rgba(253, 251, 247, 0.3) 100%) !important;
+    width: 100% !important;
+  }
+  html.dark .hero-gradient-overlay {
+    background: linear-gradient(to bottom, rgba(14, 12, 13, 0.97) 0%, rgba(14, 12, 13, 0.90) 75%, rgba(14, 12, 13, 0.4) 100%) !important;
+    width: 100% !important;
   }
 }
 
@@ -28,9 +281,17 @@
   background: #FAF6F0;
 }
 
+html.dark ::-webkit-scrollbar-track {
+  background: #141012;
+}
+
 ::-webkit-scrollbar-thumb {
   background: #DDA7A5;
   border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #5A3E46;
 }
 
 ::-webkit-scrollbar-thumb:hover {

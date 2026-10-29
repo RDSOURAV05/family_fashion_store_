@@ -8,6 +8,7 @@ import { InstagramIcon } from '../common/InstagramIcon';
 import { STORE_WHATSAPP_NUMBER, STORE_INSTAGRAM_URL } from '../../utils/whatsapp';
 import { MobileNav } from './MobileNav';
 import { SearchModal } from '../common/SearchModal';
+import { ThemeToggle } from '../common/ThemeToggle';
 
 interface HeaderProps {
   onOpenSearch?: () => void;
@@ -110,6 +111,9 @@ export const Header: React.FC<HeaderProps> = () => {
               >
                 <WhatsAppIcon size={19} className="fill-current" />
               </a>
+
+              {/* Theme Toggle (Bright / Dark Mode) */}
+              <ThemeToggle variant="icon" />
 
               {/* Search Icon */}
               <button

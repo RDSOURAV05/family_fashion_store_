@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import { CartProvider } from './context/CartContext';
 import { WishlistProvider } from './context/WishlistContext';
 import { AuthProvider } from './context/AuthContext';
@@ -94,15 +95,17 @@ const AppContent: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <AuthProvider>
-      <WishlistProvider>
-        <CartProvider>
-          <Router>
-            <AppContent />
-          </Router>
-        </CartProvider>
-      </WishlistProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <Router>
+              <AppContent />
+            </Router>
+          </CartProvider>
+        </WishlistProvider>
+      </AuthProvider>
+    </ThemeProvider>
   );
 };
 

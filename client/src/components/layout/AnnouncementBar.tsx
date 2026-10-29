@@ -12,7 +12,7 @@ export const AnnouncementBar: React.FC<AnnouncementBarProps> = ({
   text = 'Discover Your Everyday Elegance'
 }) => {
   return (
-    <div className="bg-burgundy-900 text-cream-100 text-xs py-2 px-4 border-b border-burgundy-800 transition-all">
+    <div className="bg-burgundy-900 announcement-bar-bg text-cream-100 text-xs py-2 px-4 border-b border-burgundy-800 transition-all">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left: Quick Social Icons */}
         <div className="hidden sm:flex items-center gap-4 text-cream-200">

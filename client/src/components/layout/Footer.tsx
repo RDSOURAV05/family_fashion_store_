@@ -4,6 +4,7 @@ import { Phone, Heart, ShieldCheck } from 'lucide-react';
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
 import { InstagramIcon } from '../common/InstagramIcon';
 import { STORE_PHONE_DISPLAY, STORE_WHATSAPP_NUMBER, STORE_INSTAGRAM_URL, STORE_TEL_LINK } from '../../utils/whatsapp';
+import { ThemeToggle } from '../common/ThemeToggle';
 
 export const Footer: React.FC = () => {
   return (
@@ -194,7 +195,10 @@ export const Footer: React.FC = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-charcoal-700 gap-4">
-          <p>© {new Date().getFullYear()} Chic Store. All rights reserved.</p>
+          <div className="flex items-center gap-4">
+            <p>© {new Date().getFullYear()} Chic Store. All rights reserved.</p>
+            <ThemeToggle variant="dropdown" />
+          </div>
           <p className="text-[11px] text-charcoal-700 text-center sm:text-right">
             Curated Women's Fashion • WhatsApp Ordering • Standard Indian Boutique Care
           </p>

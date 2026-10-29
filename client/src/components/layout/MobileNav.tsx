@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { X, Phone, Heart, ShoppingBag, ShieldCheck } from 'lucide-react';
 import { WhatsAppIcon } from '../common/WhatsAppIcon';
 import { InstagramIcon } from '../common/InstagramIcon';
+import { ThemeToggle } from '../common/ThemeToggle';
 import { STORE_PHONE_DISPLAY, STORE_WHATSAPP_NUMBER, STORE_INSTAGRAM_URL, STORE_TEL_LINK } from '../../utils/whatsapp';
 
 interface MobileNavProps {
@@ -65,7 +66,12 @@ export const MobileNav: React.FC<MobileNavProps> = ({ isOpen, onClose, links }) 
             );
           })}
 
-          <div className="pt-4 border-t border-cream-200 mt-4 space-y-1">
+          {/* Display & Contrast Mode Selector */}
+          <div className="pt-3 pb-1">
+            <ThemeToggle variant="drawer-selector" />
+          </div>
+
+          <div className="pt-3 border-t border-cream-200 mt-2 space-y-1">
             <Link
               to="/wishlist"
               onClick={onClose}

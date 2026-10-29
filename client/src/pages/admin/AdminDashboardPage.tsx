@@ -4,6 +4,7 @@ import { Package, ShoppingBag, MessageSquare, Settings, LogOut, Plus, ExternalLi
 import { useAuth } from '../../context/AuthContext';
 import { Product, Order, ContactMessage } from '../../types';
 import { formatCurrency, formatDate } from '../../utils/formatters';
+import { ThemeToggle } from '../../components/common/ThemeToggle';
 import { fallbackProducts } from '../../data/initialProducts';
 
 export const AdminDashboardPage: React.FC = () => {
@@ -95,7 +96,8 @@ export const AdminDashboardPage: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 sm:gap-4">
+            <ThemeToggle variant="icon" />
             <span className="text-xs text-charcoal-700 hidden sm:inline">
               Signed in as <strong className="text-charcoal-900">{admin?.username || 'Store Admin'}</strong>
             </span>

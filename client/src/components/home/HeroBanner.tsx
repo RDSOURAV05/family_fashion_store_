@@ -23,7 +23,7 @@ export const HeroBanner: React.FC<HeroBannerProps> = ({
           className="w-full h-full object-cover object-center filter brightness-[0.92] contrast-[1.02]"
         />
         {/* Soft luxury gradients */}
-        <div className="absolute inset-0 bg-gradient-to-r from-cream-50/95 via-cream-50/75 to-transparent sm:w-3/4 lg:w-3/5" />
+        <div className="absolute inset-0 hero-gradient-overlay sm:w-3/4 lg:w-3/5" />
         <div className="absolute inset-0 bg-burgundy-950/10" />
       </div>
 
