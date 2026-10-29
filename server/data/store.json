@@ -1,0 +1,346 @@
+{
+  "products": [
+    {
+      "id": "prod-01",
+      "name": "Elegant Floral Cotton Saree",
+      "slug": "elegant-floral-cotton-saree",
+      "category": "Sarees",
+      "price": 1899,
+      "originalPrice": 2499,
+      "discountPercent": 24,
+      "description": "Immerse yourself in gentle comfort with this handcrafted floral cotton saree. Woven from breathable pure mulmul cotton, featuring delicate hand-block inspired floral impressions and a subtle zari border for an ethereal boutique look.",
+      "fabricDetails": "100% Pure Mulmul Cotton with woven zari border",
+      "careInstructions": "Dry clean recommended for the first wash. Gentle cold hand wash separately thereafter.",
+      "images": [
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "Free Size"
+      ],
+      "colors": [
+        "Blush Pink",
+        "Sage Green",
+        "Ivory Cream"
+      ],
+      "inStock": true,
+      "stockCount": 15,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "tags": [
+        "saree",
+        "cotton",
+        "floral",
+        "dailywear",
+        "summer"
+      ],
+      "createdAt": "2026-10-15T10:00:00.000Z",
+      "updatedAt": "2026-10-15T10:00:00.000Z"
+    },
+    {
+      "id": "prod-02",
+      "name": "Classic Festive Silk-Style Saree",
+      "slug": "classic-festive-silk-style-saree",
+      "category": "Sarees",
+      "price": 3499,
+      "originalPrice": 4299,
+      "discountPercent": 18,
+      "description": "A regal statement piece crafted for celebrations, temple ceremonies, and grand evenings. Features intricate traditional motifs across a rich pallu with subtle luster and exquisite drape.",
+      "fabricDetails": "Premium Art Silk with heavy woven zari border and pallu",
+      "careInstructions": "Strictly dry clean only to maintain gold luster.",
+      "images": [
+        "https://images.unsplash.com/photo-1617627143750-d86bc21e42bb?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "Free Size"
+      ],
+      "colors": [
+        "Royal Burgundy",
+        "Emerald Green",
+        "Mustard Gold"
+      ],
+      "inStock": true,
+      "stockCount": 8,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "tags": [
+        "saree",
+        "silk",
+        "festive",
+        "traditional",
+        "wedding"
+      ],
+      "createdAt": "2026-10-16T11:00:00.000Z",
+      "updatedAt": "2026-10-16T11:00:00.000Z"
+    },
+    {
+      "id": "prod-03",
+      "name": "Everyday Printed Kurta",
+      "slug": "everyday-printed-kurta",
+      "category": "Kurtas",
+      "price": 999,
+      "originalPrice": 1299,
+      "discountPercent": 23,
+      "description": "Designed for the modern woman on the go. This breezy straight-cut kurta combines everyday comfort with minimalist elegance. Styled with a notched neckline and 3/4th sleeves.",
+      "fabricDetails": "100% Breathable Combed Cotton",
+      "careInstructions": "Machine wash delicate or cold hand wash. Warm iron inside out.",
+      "images": [
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Dusty Peach",
+        "Sky Blue",
+        "Pastel Yellow"
+      ],
+      "inStock": true,
+      "stockCount": 25,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "tags": [
+        "kurta",
+        "everyday",
+        "cotton",
+        "workwear",
+        "casual"
+      ],
+      "createdAt": "2026-10-20T09:00:00.000Z",
+      "updatedAt": "2026-10-20T09:00:00.000Z"
+    },
+    {
+      "id": "prod-04",
+      "name": "Elegant Straight-Cut Kurta Set",
+      "slug": "elegant-straight-cut-kurta-set",
+      "category": "Kurta Sets",
+      "price": 2299,
+      "originalPrice": 2999,
+      "discountPercent": 23,
+      "description": "A 3-piece coordinated ensemble featuring a straight-fit kurta with delicate pin-tuck details, tailored cigarette pants with an elasticated waistband, and an airy organza dupatta.",
+      "fabricDetails": "Chanderi cotton blend kurta and pants; lightweight organza dupatta",
+      "careInstructions": "Dry clean or gentle hand wash in mild detergent.",
+      "images": [
+        "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "colors": [
+        "Powder Blue",
+        "Lavender",
+        "Warm Cream"
+      ],
+      "inStock": true,
+      "stockCount": 12,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "tags": [
+        "kurta set",
+        "suit",
+        "3-piece",
+        "office wear",
+        "pastel"
+      ],
+      "createdAt": "2026-10-18T14:00:00.000Z",
+      "updatedAt": "2026-10-18T14:00:00.000Z"
+    },
+    {
+      "id": "prod-05",
+      "name": "Embroidered Festive Kurta Set",
+      "slug": "embroidered-festive-kurta-set",
+      "category": "Ethnic Wear",
+      "price": 3899,
+      "originalPrice": 4999,
+      "discountPercent": 22,
+      "description": "Exude grace with this festive three-piece set. Decorated with intricate metallic threadwork on the neckline and cuffs, paired with straight trousers and a rich scalloped border dupatta.",
+      "fabricDetails": "Pure Chanderi Silk with cotton lining; Silk blend pants",
+      "careInstructions": "Professional dry clean only.",
+      "images": [
+        "https://images.unsplash.com/photo-1610030469668-93510cb076fb?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1609357605129-26f69add5d6e?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Wine Burgundy",
+        "Deep Teal",
+        "Dusty Mauve"
+      ],
+      "inStock": true,
+      "stockCount": 10,
+      "isFeatured": true,
+      "isNewArrival": true,
+      "tags": [
+        "ethnic wear",
+        "kurta set",
+        "festive",
+        "chanderi",
+        "embroidery"
+      ],
+      "createdAt": "2026-10-22T12:00:00.000Z",
+      "updatedAt": "2026-10-22T12:00:00.000Z"
+    },
+    {
+      "id": "prod-06",
+      "name": "Floral Anarkali Dress",
+      "slug": "floral-anarkali-dress",
+      "category": "Dresses",
+      "price": 2799,
+      "originalPrice": 3499,
+      "discountPercent": 20,
+      "description": "A romantic floral maxi silhouette with dramatic 32-kali flare, sweetheart neckline, and romantic puff sleeves. Perfect for summer brunches, sangeet evenings, and festive gatherings.",
+      "fabricDetails": "Flowy Georgette with 100% soft cotton lining",
+      "careInstructions": "Hand wash gently with cold water. Flat dry in shade.",
+      "images": [
+        "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Rose Blush",
+        "Sage Floral",
+        "Ivory Gold"
+      ],
+      "inStock": true,
+      "stockCount": 14,
+      "isFeatured": true,
+      "isNewArrival": false,
+      "tags": [
+        "anarkali",
+        "dress",
+        "maxi",
+        "floral",
+        "flare"
+      ],
+      "createdAt": "2026-10-17T08:00:00.000Z",
+      "updatedAt": "2026-10-17T08:00:00.000Z"
+    },
+    {
+      "id": "prod-07",
+      "name": "Minimal Everyday Tunic",
+      "slug": "minimal-everyday-tunic",
+      "category": "Tops & Tunics",
+      "price": 849,
+      "originalPrice": 1099,
+      "discountPercent": 22,
+      "description": "A versatile, clean-silhouette tunic tailored with a refined mandarin collar, concealed placket, and side slits. Pairs effortlessly with culottes, denims, or cigarette pants.",
+      "fabricDetails": "Breathable Slub Rayon with soft peach finish",
+      "careInstructions": "Machine wash cold on gentle cycle. Medium iron.",
+      "images": [
+        "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Warm Ivory",
+        "Terracotta",
+        "Olive Green"
+      ],
+      "inStock": true,
+      "stockCount": 30,
+      "isFeatured": false,
+      "isNewArrival": true,
+      "tags": [
+        "tunic",
+        "top",
+        "minimal",
+        "workwear",
+        "everyday"
+      ],
+      "createdAt": "2026-10-24T16:00:00.000Z",
+      "updatedAt": "2026-10-24T16:00:00.000Z"
+    },
+    {
+      "id": "prod-08",
+      "name": "Contemporary Women's Co-ord Set",
+      "slug": "contemporary-womens-co-ord-set",
+      "category": "Co-ord Sets",
+      "price": 2499,
+      "originalPrice": 3199,
+      "discountPercent": 21,
+      "description": "Effortless chic embodied. This matching set includes a relaxed notch-collar button-down shirt and flattering high-waisted pleated wide-leg pants. Transition seamlessly from desk to dinner.",
+      "fabricDetails": "Structured Linen-Cotton blend for crisp shape and breathability",
+      "careInstructions": "Machine wash delicate, tumble dry low or line dry.",
+      "images": [
+        "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80",
+        "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80"
+      ],
+      "sizes": [
+        "XS",
+        "S",
+        "M",
+        "L",
+        "XL"
+      ],
+      "colors": [
+        "Dusty Sage",
+        "Rust Ochre",
+        "Midnight Navy"
+      ],
+      "inStock": true,
+      "stockCount": 16,
+      "isFeatured": true,
+      "isNewArrival": true,
+      "tags": [
+        "co-ord",
+        "set",
+        "matching",
+        "contemporary",
+        "linen"
+      ],
+      "createdAt": "2026-10-25T11:00:00.000Z",
+      "updatedAt": "2026-10-25T11:00:00.000Z"
+    }
+  ],
+  "orders": [],
+  "contactMessages": [],
+  "settings": {
+    "storeName": "Chic Store",
+    "phone": "+91 82816 10328",
+    "whatsappNumber": "918281610328",
+    "instagramUrl": "https://www.instagram.com/_chicstore.in?rpxt=MTdnY3F6YjV2YWRiNg==",
+    "announcementBarText": "Discover Your Everyday Elegance",
+    "heroHeadline": "Elegance, Woven Into Every Look.",
+    "heroSupportingText": "Discover timeless sarees, beautiful kurtas, and styles that celebrate you.",
+    "aboutText": "At Chic Store, we believe every outfit tells a story. From graceful traditional wear to effortlessly modern styles, discover pieces that bring comfort, confidence, and elegance to your wardrobe.",
+    "updatedAt": "2026-10-29T08:46:43.850Z"
+  },
+  "adminUsers": [
+    {
+      "id": "admin-1",
+      "username": "chicadmin",
+      "passwordHash": "$2a$10$Di76k2YWfHk.NK4XLwC61e29hKHVs7RIM.4d7Khih1jIYJGPHaOfq",
+      "name": "Store Manager",
+      "role": "admin"
+    }
+  ]
+}
